@@ -22,6 +22,11 @@ export interface VitePluginRestartOptions {
    * Array of files to watch, changes to those file will trigger a client full page reload
    */
   reload?: string | string[]
+  /**
+   * Array of events to watch, vite will restart/reload the server when any of these events are triggered
+   * @default ['add', 'change', 'unlink']
+   */
+  eventsToWatch?: string[]
 }
 
 let i = 0
@@ -37,6 +42,7 @@ function toArray<T>(arr: T | T[] | undefined): T[] {
 function VitePluginRestart(options: VitePluginRestartOptions = {}): Plugin {
   const {
     delay = 500,
+    eventsToWatch = ['add', 'change', 'unlink'],
     glob: enableGlob = true,
   } = options
 
@@ -81,9 +87,15 @@ function VitePluginRestart(options: VitePluginRestartOptions = {}): Plugin {
         ...restartGlobs,
         ...reloadGlobs,
       ])
-      server.watcher.on('add', handleFileChange)
+      server.watcher.on('all', (event, file) => {
+        const canExecute = eventsToWatch?.includes(event)
+        if (canExecute) {
+          handleFileChange(file)
+        }
+      })
+      /* server.watcher.on('add', handleFileChange)
       server.watcher.on('change', handleFileChange)
-      server.watcher.on('unlink', handleFileChange)
+      server.watcher.on('unlink', handleFileChange) */
 
       function handleFileChange(file: string) {
         if (micromatch.isMatch(file, restartGlobs)) {

@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import VitePluginRestart from 'vite-plugin-restart'
+import VitePluginRestart from 'vite-plugin-restart-2'
 
 export default defineConfig({
   plugins: [
