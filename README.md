@@ -1,11 +1,11 @@
 <h2 align='center'><samp>vite-plugin-restart-2</samp></h2>
-<p align="center">This is the fork repository of original vite plugin <a href="https://github.com/antfu/vite-plugin-restart">vite-plugin-restart</a> from <a href="https://github.com/antfu">Anthony Fu</a> to add an option to provide on what type of event **add**, **unlink** or **change** the vite to restart/reload server.</p>
+<p align="center">This is the fork repository of original vite plugin <a href="https://github.com/antfu/vite-plugin-restart">vite-plugin-restart</a> from <a href="https://github.com/antfu">Anthony Fu</a> to add an option to provide on what type of event <strong>add</strong>, <strong>unlink</strong> or <strong>change</strong> the vite to restart/reload server.</p>
 
 <p align='center'>Custom files/globs to restart Vite server</p>
 
 <p align='center'>
 <a href='https://www.npmjs.com/package/vite-plugin-restart-2'>
-<img src='https://img.shields.io/npm/v/vite-plugin-restart-2?color=222&style=flat-square'>
+<img src='https://img.shields.io/npm/v/vite-plugin-restart-2?color=25c2a0&style=flat-square'>
 </a>
 </p>
 
