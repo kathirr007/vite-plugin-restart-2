@@ -30,7 +30,8 @@ export default {
     ViteRestart({
       restart: [
         'my.config.[jt]s',
-      ]
+      ],
+      eventsToWatch: ['add', 'unlink']
     })
   ],
 }

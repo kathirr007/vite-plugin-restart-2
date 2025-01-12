@@ -8,6 +8,7 @@ export default defineConfig({
         'trigger.txt',
         '../../dist/*.*',
       ],
+      eventsToWatch: ['add', 'unlink'],
     }),
   ],
 })
