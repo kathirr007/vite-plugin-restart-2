@@ -3,6 +3,7 @@ import path from 'node:path'
 import process from 'node:process'
 import micromatch from 'micromatch'
 
+type AllowedEvents = 'add' | 'change' | 'unlink' | 'addDir' | 'unlinkDir'
 export interface VitePluginRestartOptions {
   /**
    * Enable glob support for watcher (it's disabled by Vite, but add this plugin will turn it on by default)
@@ -23,10 +24,10 @@ export interface VitePluginRestartOptions {
    */
   reload?: string | string[]
   /**
-   * Array of events to watch, vite will restart/reload the server when any of these events are triggered
+   * Array of chokidar events to watch, vite will restart/reload the server when any of these events are triggered
    * @default ['add', 'change', 'unlink']
    */
-  eventsToWatch?: string[]
+  eventsToWatch?: AllowedEvents[]
 }
 
 let i = 0
